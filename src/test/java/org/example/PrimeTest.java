@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrimeTest {
@@ -23,5 +25,13 @@ class PrimeTest {
     @Test
     void checkThrows() {
         assertThrows(IllegalArgumentException.class, () -> Prime.check(1));
+    }
+
+    @Test
+    void generate() {
+        List<Integer> expected = List.of(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47);
+        List<Integer> actual = Prime.generate(50);
+
+        assertEquals(expected, actual);
     }
 }
