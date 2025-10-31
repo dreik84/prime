@@ -15,5 +15,14 @@ public class PrimeApp {
         System.out.println(primeNumbers);
         System.out.println("Count: " + primeNumbers.size());
         System.out.println("Time: " + (end - start) + " ms");
+
+        start = System.currentTimeMillis();
+
+        List<Integer> fastPrimeNumbers = Prime.generateFast(bound);
+
+        end = System.currentTimeMillis();
+
+        System.out.println("Count: " + fastPrimeNumbers.size());
+        System.out.println("Time: " + (end - start) + " ms");
     }
 }
