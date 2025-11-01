@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PrimeApp {
     public static void main(String[] args) {
-        int bound = 10_000_000;
+        int bound = 1_000_000;
 
         long start = System.currentTimeMillis();
 
@@ -23,6 +23,15 @@ public class PrimeApp {
         end = System.currentTimeMillis();
 
         System.out.println("Count: " + fastPrimeNumbers.size());
+        System.out.println("Time: " + (end - start) + " ms");
+
+        start = System.currentTimeMillis();
+
+        List<Integer> cachePrimeNumbers = Prime.generateWithCache(bound);
+
+        end = System.currentTimeMillis();
+
+        System.out.println("Count: " + cachePrimeNumbers.size());
         System.out.println("Time: " + (end - start) + " ms");
     }
 }

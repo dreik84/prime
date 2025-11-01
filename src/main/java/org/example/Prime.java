@@ -50,4 +50,24 @@ public class Prime {
 
         return res;
     }
+
+    public static List<Integer> generateWithCache(int bound) {
+        List<Integer> cache = new ArrayList<>(bound >>> 2);
+        cache.add(2);
+
+        for (int i = 3; i < bound; i++) {
+            boolean isPrime = true;
+
+            for (int num : cache) {
+                if (i % num == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) cache.add(i);
+        }
+
+        return cache;
+    }
 }
