@@ -58,8 +58,9 @@ public class Prime {
         for (int i = 3; i < bound; i++) {
             boolean isPrime = true;
 
-            for (int num : cache) {
-                if (i % num == 0) {
+            for (int j = 0; cache.get(j) * cache.get(j) <= i; j++) {
+
+                if (i % cache.get(j) == 0) {
                     isPrime = false;
                     break;
                 }

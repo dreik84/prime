@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PrimeApp {
     public static void main(String[] args) {
-        int bound = 1_000_000;
+        int bound = 10_000_000;
 
         long start = System.currentTimeMillis();
 

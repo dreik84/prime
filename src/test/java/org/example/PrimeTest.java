@@ -31,7 +31,11 @@ class PrimeTest {
     void generate() {
         List<Integer> expected = List.of(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47);
         List<Integer> actual = Prime.generate(50);
+        List<Integer> actualFast = Prime.generateFast(50);
+        List<Integer> actualWithCache = Prime.generateWithCache(50);
 
         assertEquals(expected, actual);
+        assertEquals(expected, actualFast);
+        assertEquals(expected, actualWithCache);
     }
 }
