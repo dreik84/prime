@@ -83,11 +83,11 @@ public class Prime {
         return true;
     }
 
-    public static List<Integer> generatePrimes(int count) {
+    public static List<Integer> generatePrimes(int bound) {
         List<Integer> primes = new ArrayList<>();
         int num = 2;
 
-        while (num <= count) {
+        while (num <= bound) {
             if (isPrime(num)) {
                 primes.add(num);
             }
