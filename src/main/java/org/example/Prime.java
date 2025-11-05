@@ -20,10 +20,10 @@ public class Prime {
         return true;
     }
 
-    public static List<Integer> generate(int bound) {
-        primeNumbers = new ArrayList<>(bound >>> 2);
+    public static List<Integer> generate(int limit) {
+        primeNumbers = new ArrayList<>(limit >>> 2);
 
-        for (int i = 2; i < bound; i++) {
+        for (int i = 2; i < limit; i++) {
             if (check(i)) primeNumbers.add(i);
         }
 
@@ -41,21 +41,21 @@ public class Prime {
         return true;
     }
 
-    public static List<Integer> generateFast(int bound) {
-        List<Integer> res = new ArrayList<>(bound >>> 2);
+    public static List<Integer> generateFast(int limit) {
+        List<Integer> primes = new ArrayList<>(limit >>> 2);
 
-        for (int i = 2; i < bound; i++) {
-            if (checkFast(i)) res.add(i);
+        for (int i = 2; i < limit; i++) {
+            if (checkFast(i)) primes.add(i);
         }
 
-        return res;
+        return primes;
     }
 
-    public static List<Integer> generateWithCache(int bound) {
-        List<Integer> cache = new ArrayList<>(bound >>> 2);
+    public static List<Integer> generateWithCache(int limit) {
+        List<Integer> cache = new ArrayList<>(limit >>> 2);
         cache.add(2);
 
-        for (int i = 3; i < bound; i++) {
+        for (int i = 3; i < limit; i++) {
             boolean isPrime = true;
 
             for (int j = 0; cache.get(j) * cache.get(j) <= i; j++) {
@@ -83,15 +83,41 @@ public class Prime {
         return true;
     }
 
-    public static List<Integer> generatePrimes(int bound) {
+    public static List<Integer> generatePrimes(int limit) {
         List<Integer> primes = new ArrayList<>();
         int num = 2;
 
-        while (num <= bound) {
+        while (num <= limit) {
             if (isPrime(num)) {
                 primes.add(num);
             }
             num++;
+        }
+
+        return primes;
+    }
+
+    public static List<Integer> generateSieve(int limit) {
+        boolean[] isPrime = new boolean[limit + 1];
+        List<Integer> primes = new ArrayList<>();
+
+        for (int i = 2; i <= limit; i++) {
+            isPrime[i] = true;
+        }
+
+        // Решето Эратосфена
+        for (int i = 2; i * i <= limit; i++) {
+            if (isPrime[i]) {
+                for (int j = i * i; j <= limit; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        for (int i = 2; i <= limit; i++) {
+            if (isPrime[i]) {
+                primes.add(i);
+            }
         }
 
         return primes;

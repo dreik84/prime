@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PrimeApp {
     public static void main(String[] args) {
-        int bound = 1_000_000;
+        int bound = 10_000_000;
 
         long start = System.currentTimeMillis();
 
@@ -41,6 +41,15 @@ public class PrimeApp {
         end = System.currentTimeMillis();
 
         System.out.println("Count: " + primes.size());
+        System.out.println("Time: " + (end - start) + " ms");
+
+        start = System.currentTimeMillis();
+
+        List<Integer> sievePrimes = Prime.generateSieve(bound);
+
+        end = System.currentTimeMillis();
+
+        System.out.println("Count: " + sievePrimes.size());
         System.out.println("Time: " + (end - start) + " ms");
     }
 }

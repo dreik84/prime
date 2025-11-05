@@ -34,10 +34,12 @@ class PrimeTest {
         List<Integer> actualFast = Prime.generateFast(50);
         List<Integer> actualWithCache = Prime.generateWithCache(50);
         List<Integer> actualPrimes = Prime.generatePrimes(50);
+        List<Integer> actualSieve = Prime.generateSieve(50);
 
         assertEquals(expected, actual);
         assertEquals(expected, actualFast);
         assertEquals(expected, actualWithCache);
         assertEquals(expected, actualPrimes);
+        assertEquals(expected, actualSieve);
     }
 }
