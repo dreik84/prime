@@ -21,7 +21,8 @@ public class Prime {
     }
 
     public static List<Integer> generate(int limit) {
-        primeNumbers = new ArrayList<>(limit >>> 2);
+        int initCapacity = (int) (limit / (Math.log(limit) + Math.log(Math.log(limit))));
+        primeNumbers = new ArrayList<>(initCapacity);
 
         for (int i = 2; i < limit; i++) {
             if (check(i)) primeNumbers.add(i);
@@ -42,7 +43,8 @@ public class Prime {
     }
 
     public static List<Integer> generateFast(int limit) {
-        List<Integer> primes = new ArrayList<>(limit >>> 2);
+        int initCapacity = (int) (limit / (Math.log(limit) + Math.log(Math.log(limit))));
+        List<Integer> primes = new ArrayList<>(initCapacity);
 
         for (int i = 2; i < limit; i++) {
             if (checkFast(i)) primes.add(i);
@@ -52,7 +54,8 @@ public class Prime {
     }
 
     public static List<Integer> generateWithCache(int limit) {
-        List<Integer> cache = new ArrayList<>(limit >>> 2);
+        int initCapacity = (int) (limit / (Math.log(limit) + Math.log(Math.log(limit))));
+        List<Integer> cache = new ArrayList<>(initCapacity);
         cache.add(2);
 
         for (int i = 3; i < limit; i++) {
