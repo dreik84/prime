@@ -43,6 +43,16 @@
                     <artifactId>maven-surefire-report-plugin</artifactId>
                     <version>2.22.2</version>
                 </plugin>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>1.15.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.takari.polyglot</groupId>
+                    <artifactId>ARTIFACTID</artifactId>
+                    <version>0.4.6</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
